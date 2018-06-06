@@ -1,9 +1,13 @@
 ## FULLCONENAT target patch for OpenWrt firewall3
+Replaces firewall3's MASQUERADE target with FULLCONENAT
 
-Depends: https://github.com/LGA1150/openwrt-fullconenat
+Depends
+---
+https://github.com/LGA1150/openwrt-fullconenat
 
 
 Compile
+---
 ```
 # Download fullconenat.patch to package/network/config/firewall/patches/
 mkdir package/network/config/firewall/patches
