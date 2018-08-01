@@ -11,7 +11,11 @@ Compile
 ```
 # Download fullconenat.patch to package/network/config/firewall/patches/
 mkdir package/network/config/firewall/patches
-wget -O package/network/config/firewall/patches/fullconenat.patch https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/fullconenat.patch
+wget -P package/network/config/firewall/patches/ https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/fullconenat.patch
+# Patch Makefile
+wget -O- https://github.com/LGA1150/fullconenat-fw3-patch/raw/master/Makefile.patch | patch -p1
+# Configure - Select Base system - firewall - Use FULLCONENAT
+make menuconfig
 # Compile firewall3 only
 make package/firewall/compile V=s
 # or compile the whole image
