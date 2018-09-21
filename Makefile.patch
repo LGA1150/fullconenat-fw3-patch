@@ -18,7 +18,7 @@ index 010c5aa342..6f04e3e39c 100644
 +endif		
 +endef
 +
-+TARGET_CFLAGS += $(if $(PACKAGE_firewall-FULLCONENAT),y,-DUSE_FULLCONENAT)
++TARGET_CFLAGS += $(if $(CONFIG_PACKAGE_firewall-FULLCONENAT),-DUSE_FULLCONENAT,)
 +
  define Package/firewall/description
   This package provides a config-compatible C implementation of the UCI firewall.
