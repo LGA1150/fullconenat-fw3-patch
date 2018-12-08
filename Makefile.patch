@@ -1,25 +1,13 @@
 diff --git a/package/network/config/firewall/Makefile b/package/network/config/firewall/Makefile
-index 010c5aa342..6f04e3e39c 100644
+index 0254883d33..bc9d965a67 100644
 --- a/package/network/config/firewall/Makefile
 +++ b/package/network/config/firewall/Makefile
-@@ -28,9 +28,19 @@ define Package/firewall
+@@ -28,7 +28,7 @@ define Package/firewall
    SECTION:=net
    CATEGORY:=Base system
    TITLE:=OpenWrt C Firewall
 -  DEPENDS:=+libubox +libubus +libuci +libip4tc +IPV6:libip6tc +libxtables +kmod-ipt-core +kmod-ipt-conntrack +IPV6:kmod-nf-conntrack6 +kmod-ipt-nat
-+  DEPENDS:=+libubox +libubus +libuci +libip4tc +IPV6:libip6tc +libxtables +kmod-ipt-core +kmod-ipt-conntrack +IPV6:kmod-nf-conntrack6 +kmod-ipt-nat +PACKAGE_firewall-FULLCONENAT:iptables-mod-fullconenat
++  DEPENDS:=+libubox +libubus +libuci +libip4tc +IPV6:libip6tc +libxtables +kmod-ipt-core +kmod-ipt-conntrack +IPV6:kmod-nf-conntrack6 +kmod-ipt-nat +iptables-mod-fullconenat
  endef
  
-+define Package/firewall/config
-+if PACKAGE_firewall
-+	config PACKAGE_firewall-FULLCONENAT
-+		bool "Use FULLCONENAT"
-+		default n
-+endif		
-+endef
-+
-+TARGET_CFLAGS += $(if $(CONFIG_PACKAGE_firewall-FULLCONENAT),-DUSE_FULLCONENAT,)
-+
  define Package/firewall/description
-  This package provides a config-compatible C implementation of the UCI firewall.
- endef

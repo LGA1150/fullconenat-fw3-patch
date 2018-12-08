@@ -1,0 +1,24 @@
+diff --git a/applications/luci-app-firewall/luasrc/model/cbi/firewall/zone-details.lua b/applications/luci-app-firewall/luasrc/model/cbi/firewall/zone-details.lua
+index e168c3c60..3055c6949 100644
+--- a/applications/luci-app-firewall/luasrc/model/cbi/firewall/zone-details.lua
++++ b/applications/luci-app-firewall/luasrc/model/cbi/firewall/zone-details.lua
+@@ -83,6 +83,7 @@ for i, v in ipairs(p) do
+ end
+ 
+ s:taboption("general", Flag, "masq", translate("Masquerading"))
++s:taboption("general", Flag, "fullcone", translate("Full Cone"))
+ s:taboption("general", Flag, "mtu_fix", translate("MSS clamping"))
+ 
+ net = s:taboption("general", Value, "network", translate("Covered networks"))
+diff --git a/applications/luci-app-firewall/luasrc/model/cbi/firewall/zones.lua b/applications/luci-app-firewall/luasrc/model/cbi/firewall/zones.lua
+index 46402a8fc..dc3c58423 100644
+--- a/applications/luci-app-firewall/luasrc/model/cbi/firewall/zones.lua
++++ b/applications/luci-app-firewall/luasrc/model/cbi/firewall/zones.lua
+@@ -99,6 +99,7 @@ for i, v in ipairs(p) do
+ end
+ 
+ s:option(Flag, "masq", translate("Masquerading"))
++s:option(Flag, "fullcone", translate("Full Cone"))
+ s:option(Flag, "mtu_fix", translate("MSS clamping"))
+ 
+ return m
